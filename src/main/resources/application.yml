@@ -1,5 +1,5 @@
 filepaths:
-  email-subscriptions: null
+  email-subscriptions: var/lib/
 
 spring:
   mail:
@@ -14,4 +14,4 @@ spring:
           starttls:
             enable: true
 server:
-  port: 80
+  port: 8080
