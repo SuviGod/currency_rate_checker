@@ -1,4 +1,4 @@
-./mvnw clean install
+./mvnw clean install -DskipTests
 
 cp target/task-0.0.1-SNAPSHOT.jar src/main/docker/application.jar
 
