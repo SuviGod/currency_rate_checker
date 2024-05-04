@@ -2,13 +2,15 @@ package edu.sulima.genesis.service;
 
 import jakarta.annotation.PostConstruct;
 import java.io.File;
+import java.util.List;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class SubscriptionService {
+public class RateService {
   private final FileService fileService;
 
   private final EmailSendService emailSendService;
@@ -29,8 +31,12 @@ public class SubscriptionService {
     fileService.appendToFile(email + '\n', subscribedEmailsFileUri);
   }
 
-  public void sendEmails() {
+  public void sendSubscribedEmails() {
     var emails = fileService.readAllLines(subscribedEmailsFileUri);
+    emailSendService.sendRateToAll(emails);
+  }
+
+  public void sendEmails(List<String> emails) {
     emailSendService.sendRateToAll(emails);
   }
 }
