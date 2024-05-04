@@ -10,6 +10,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -36,19 +37,21 @@ public class RateController {
     return whiteBitService.getLastPrice();
   }
 
-  @Operation(description = "Subscribes specified email for receiving of email with last price of BTC in USD. ")
+  @Operation(description = "(NOT AVAILABLE AT THE MOMENT)Subscribes specified email for receiving of email with last price of BTC in USD. ")
   @PostMapping("/subscribe")
-  @ResponseStatus(HttpStatus.OK)
-  public void subscribe(@RequestBody SubscribeEmailRequest request) {
-    rateService.subscribeEmail(request.getEmail());
+//  @ResponseStatus(HttpStatus.OK)
+  public ResponseEntity<Void> subscribe(@RequestBody SubscribeEmailRequest request) {
+//    rateService.subscribeEmail(request.getEmail());
+    return new ResponseEntity<>(HttpStatus.SERVICE_UNAVAILABLE);
   }
 
-  @Operation(description = "Sends last price of BTC in USD to all subscribed emails")
+  @Operation(description = "(NOT AVAILABLE AT THE MOMENT)Sends last price of BTC in USD to all subscribed emails")
   @PostMapping("/sendSubscribedEmails")
-  @ResponseStatus(HttpStatus.OK)
-  public void sendSubscribedEmails() {
 
-    rateService.sendSubscribedEmails();
+  public ResponseEntity<Void> sendSubscribedEmails() {
+
+//    rateService.sendSubscribedEmails();
+    return new ResponseEntity<>(HttpStatus.SERVICE_UNAVAILABLE);
   }
 
   @Operation(description = "Sends last price of BTC in USD to all specified emails")
